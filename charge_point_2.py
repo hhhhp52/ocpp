@@ -19,7 +19,11 @@ async def main():
             subprotocols=['ocpp1.6']
     ) as ws:
         cp = charge_point.ChargePoint(f'{CP_NAME_2}', ws)
-        await asyncio.gather(cp.start(), cp.send_boot_notification(), cp.send_authorize_request('123456789'))
+        await asyncio.gather(
+            cp.start(),
+            cp.send_boot_notification('A-2', 'A'),
+            cp.send_authorize_request('123456789')
+        )
 
 
 

@@ -20,7 +20,7 @@ async def main():
         cp = charge_point.ChargePoint(f'{CP_NAME_1}', ws)
         await asyncio.gather(
             cp.start(),
-            cp.send_boot_notification(),
+            cp.send_boot_notification('A-1', 'A'),
             cp.send_authorize_request('123456789'),
             cp.send_hearbeat()
         )

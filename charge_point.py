@@ -8,10 +8,10 @@ from ocpp.v16 import ChargePoint as cp
 
 class ChargePoint(cp):
 
-    async def send_boot_notification(self):
+    async def send_boot_notification(self, charge_point_model, charge_point_vendor):
         request = call.BootNotification(
-            charge_point_model='Wallbox XYZ',
-            charge_point_vendor='anewone',
+            charge_point_model=charge_point_model,
+            charge_point_vendor=charge_point_vendor,
         )
         response = await self.call(request)
         try:
